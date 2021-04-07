@@ -54,3 +54,5 @@ gem "devise", "~> 4.7"
 gem "react-rails", "~> 2.6"
 
 gem 'materialize-sass'
+
+gem 'material_icons'

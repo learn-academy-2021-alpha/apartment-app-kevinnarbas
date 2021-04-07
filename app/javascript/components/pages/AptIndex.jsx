@@ -21,7 +21,7 @@ class AptIndex extends Component {
         <ul>
           {apts.map((apt) => {
             return (
-              <li>
+              <li key={apt.id}>
                 {' '}
                 <div className='card'>
                   <div className='card-image waves-effect waves-block waves-light'>
