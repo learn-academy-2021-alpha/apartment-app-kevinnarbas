@@ -35,9 +35,14 @@ class Header extends Component {
                 </>
               )}
               {!logged_in && (
-                <li>
-                  <a href={sign_in_route}>Sign In</a>
-                </li>
+                <>
+                  <li>
+                    <a href={new_user_route}>Sign Up</a>
+                  </li>
+                  <li>
+                    <a href={sign_in_route}>Sign In</a>
+                  </li>
+                </>
               )}
               <li></li>
             </ul>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class AptIndex extends Component {
   render() {
@@ -33,7 +34,9 @@ class AptIndex extends Component {
                       <i className='material-icons right'>more_vert</i>
                     </span>
                     <p>
-                      <a href='#'>This is a link</a>
+                      <NavLink to={`/aptshow/${apt.id}`}>
+                        Apartment Details
+                      </NavLink>
                     </p>
                   </div>
                   <div className='card-reveal'>

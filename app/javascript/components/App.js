@@ -39,7 +39,14 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/aptindex' render={() => <AptIndex apts={apts} />} />
-          <Route path='/aptindex' render={() => <AptShow apts={apts} />} />
+          <Route
+            path='/aptshow/:id'
+            render={(props) => {
+              const id = +props.match.params.id;
+              const singleApt = this.state.apts.find((apt) => apt.id === id);
+              return <AptShow apt={singleApt} />;
+            }}
+          />
           <Route path='/userpage' render={() => <UserPage />} />
         </Switch>
         <Footer />
