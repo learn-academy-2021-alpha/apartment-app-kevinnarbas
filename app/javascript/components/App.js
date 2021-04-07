@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import AptIndex from './pages/AptIndex';
+import AptShow from './pages/AptShow';
+import UserPage from './pages/UserPage';
 import PropTypes from 'prop-types';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -37,6 +39,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/aptindex' render={() => <AptIndex apts={apts} />} />
+          <Route path='/aptindex' render={() => <AptShow apts={apts} />} />
+          <Route path='/userpage' render={() => <UserPage />} />
         </Switch>
         <Footer />
       </Router>
