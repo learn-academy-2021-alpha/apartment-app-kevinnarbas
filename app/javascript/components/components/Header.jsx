@@ -10,6 +10,7 @@ class Header extends Component {
       sign_in_route,
       sign_out_route,
     } = this.props;
+    console.log(this.props);
     return (
       <>
         <h1>R&amp;R Apartments</h1>

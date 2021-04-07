@@ -28,13 +28,11 @@ class App extends React.Component {
     return (
       <Router>
         <Header
-          props={
-            (logged_in,
-            current_user,
-            new_user_route,
-            sign_in_route,
-            sign_out_route)
-          }
+          logged_in={logged_in}
+          current_user={current_user}
+          new_user_route={new_user_route}
+          sign_in_route={sign_in_route}
+          sign_out_route={sign_out_route}
         />
         <Switch>
           <Route exact path='/' component={Home} />
