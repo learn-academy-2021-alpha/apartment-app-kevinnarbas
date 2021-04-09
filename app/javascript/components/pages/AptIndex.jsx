@@ -1,58 +1,52 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+  Row,
+  Col,
+} from 'reactstrap';
 
 class AptIndex extends Component {
   render() {
     const { apts } = this.props;
-    const {
-      bathroom,
-      bedrooms,
-      city,
-      email,
-      manager,
-      pets,
-      pic,
-      price,
-      state,
-      street,
-    } = this.props.apts;
     return (
       <>
         <h1>Apts Index page</h1>
-        <ul>
+        <Row sm='4'>
           {apts.map((apt) => {
             return (
-              <li key={apt.id}>
-                {' '}
-                <div className='card'>
-                  <div className='card-image waves-effect waves-block waves-light'>
-                    <img className='activator' src={apt.pic} />
-                  </div>
-                  <div className='card-content'>
-                    <span className='card-title activator grey-text text-darken-4'>
-                      {apt.street} {apt.city}, {apt.state}
-                      <i className='material-icons right'>more_vert</i>
-                    </span>
-                    <p>
-                      <NavLink to={`/aptshow/${apt.id}`}>
-                        Apartment Details
-                      </NavLink>
-                    </p>
-                  </div>
-                  <div className='card-reveal'>
-                    <span className='card-title grey-text text-darken-4'>
-                      Card Title<i className='material-icons right'>close</i>
-                    </span>
-                    <p>
-                      Here is some more information about this product that is
-                      only revealed once clicked on.
-                    </p>
-                  </div>
-                </div>
-              </li>
+              <Col key={apt.id} sm='6'>
+                <Card>
+                  <CardImg
+                    top
+                    width='100%'
+                    src={apt.pic}
+                    alt='Card image cap'
+                  />
+                  <CardBody>
+                    <CardTitle tag='h5'>{apt.street}</CardTitle>
+                    <CardSubtitle tag='h6' className='mb-2 text-muted'>
+                      {apt.city}, {apt.state}
+                    </CardSubtitle>
+                    <CardText>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </CardText>
+                    <NavLink to={`/aptshow/${apt.id}`}>
+                      Apartment Details
+                    </NavLink>
+                  </CardBody>
+                </Card>
+              </Col>
             );
           })}
-        </ul>
+        </Row>
       </>
     );
   }

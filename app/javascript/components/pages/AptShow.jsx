@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class AptShow extends Component {
   render() {
@@ -15,6 +16,7 @@ class AptShow extends Component {
       state,
       street,
     } = this.props.apt;
+    const { current_user } = this.props;
     console.log(this.props.apt);
     return (
       <>
@@ -25,9 +27,7 @@ class AptShow extends Component {
           {bedrooms}/{bathrooms} bath
         </h5>
         <h5>{price}</h5>
-        <div className='container'>
-          <img src={pic} alt='apartment picture' style={{ width: '100%' }} />
-        </div>
+        <img src={pic} alt='apartment picture' style={{ width: '100%' }} />
         <p>
           <b>Pets allowed</b>: {pets}
         </p>
@@ -37,6 +37,7 @@ class AptShow extends Component {
         <p>
           <b>Email</b>: {email}
         </p>
+        {current_user.id === id && <NavLink to={'/'}>Edit Apartment</NavLink>}
       </>
     );
   }
