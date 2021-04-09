@@ -1,5 +1,18 @@
-//= require material_icons
-@import 'materialize/components/color-variables';
-$primary-color: color('cyan', 'lighten-1') !default;
-$secondary-color: color('yellow', 'base') !default;
-@import 'materialize';
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+.home {
+  background-image: url('https://images.unsplash.com/photo-1527030280862-64139fba04ca?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1206&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.home .greeting {
+  padding: 20% 0;
+  text-align: center;
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  text-shadow: 4px 4px 4px #2c2b2b;
+  font-size: 5rem;
+}

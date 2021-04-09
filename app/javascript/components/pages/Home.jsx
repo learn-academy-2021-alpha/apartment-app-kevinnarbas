@@ -1,13 +1,48 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hour: '',
+    };
+  }
+
+  componentDidMount() {
+    this.getHour();
+  }
+
+  getHour = () => {
+    const date = new Date();
+    const hour = date.getHours();
+    this.setState({ hour: hour });
+  };
+
   render() {
+    const { hour } = this.state;
+    const { logged_in, current_user } = this.props;
+    let timeOfDay;
+    if (hour < 12) {
+      timeOfDay = 'Good Morning';
+    } else if (hour > 12 && hour < 18) {
+      timeOfDay = 'Good Afternoon';
+    } else {
+      timeOfDay = 'Good Evening';
+    }
+
     return (
       <>
-        <img
-          src='https://images.unsplash.com/photo-1527030280862-64139fba04ca?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1206&q=80'
-          style={{ width: '100%' }}
-        />
+        <div className='home'>
+          {logged_in ? (
+            <h1 className='greeting'>
+              {timeOfDay} <br /> {current_user.email.split('@')[0]}!
+            </h1>
+          ) : (
+            <h1 className='greeting'>
+              {timeOfDay} <br /> Welcome to R&amp;R Apartments
+            </h1>
+          )}
+        </div>
       </>
     );
   }
